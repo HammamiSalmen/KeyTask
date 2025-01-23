@@ -1,0 +1,56 @@
+<body>
+  <div class="body">
+    <div class="side">
+      <div class="profil">
+        <div class="username">{{user.username}} dddd</div>
+        <div *ngIf="user.gender === 'Male'; else femaleProfile" class="pfp">
+          <img src="../../Images/3ammo.jpg" alt="Male Profile" />
+        </div>
+        <div class="pfp">
+          <ng-template #femaleProfile>
+            <img src="../../Images/Tata.jpg" alt="Female Profile" />
+          </ng-template>
+        </div>
+      </div>
+      <div class="options">
+        <li>Add Task</li>
+        <li>Work</li>
+        <ul>
+          <li><a target="c" href="ccccc.html">Today</a></li>
+          <li><a target="c" href="ccccc.html">Week</a></li>
+          <li><a target="c" href="ccccc.html">Month</a></li>
+          <li><a target="c" href="ccccc.html">Year</a></li>
+        </ul>
+        <li>Personal</li>
+        <ul>
+          <li><a target="c" href="ccccc.html">Today</a></li>
+          <li><a target="c" href="ccccc.html">Week</a></li>
+          <li><a target="c" href="ccccc.html">Month</a></li>
+          <li routerLink="pages/dailywork.html">Year</li>
+        </ul>
+        <li>Event</li>
+        <ul>
+          <li>birthday</li>
+          <li>IMEP1</li>
+          <li>IMP2</li>
+          <li>IMP3</li>
+        </ul>
+      </div>
+      <div class="paramétre">
+        <li>Settings</li>
+      </div>
+    </div>
+    <div class="main">
+      <div class="search">
+        <input type="search" name="" id="">
+      </div>
+      <div class="table">
+        <iframe src="pages/dailywork.html" frameborder="0" name="c"></iframe>
+      </div>
+    </div>
+    <div class="calendar">
+      <iframe src="../calendar/calendar.component.html" frameborder="0" name="c"></iframe>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+</body>
