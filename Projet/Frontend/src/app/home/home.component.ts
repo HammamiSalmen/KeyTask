@@ -59,4 +59,5 @@ export class HomeComponent implements OnInit {
     console.log('Logging out...');
     this.router.navigate(['/login']);
   }
+
 }
