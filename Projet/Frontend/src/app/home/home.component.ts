@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
-  imports:[RouterModule],
+  imports:[RouterModule, CommonModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })

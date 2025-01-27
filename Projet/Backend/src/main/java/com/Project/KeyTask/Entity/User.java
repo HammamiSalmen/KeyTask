@@ -12,7 +12,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Document
+@Document(collection = "User")
 public class User {
     @Id
     private String iduser;
@@ -27,6 +27,7 @@ public class User {
         userDTO.setIduser(this.iduser);
         userDTO.setUsername(this.username);
         userDTO.setEmail(this.email);
+//        userDTO.setPassword(this.password);
         userDTO.setGender(this.gender);
         userDTO.setIdgrp(this.idgrp);
 
