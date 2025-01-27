@@ -1,1 +1,19 @@
-<p>add-group works!</p>
+<body>
+    <form>
+      <fieldset>
+        <div>
+          <label for="usr">Groupe_name</label>
+          <input type="text" name="grp" id="grp" [(ngModel)]="Groupe_name" required>
+        </div>
+        <div>
+          <label for="pwd">Password</label>
+          <input type="password" name="pwd" id="pwd" [(ngModel)]="password" required>
+        </div>
+        <div>
+          <button type="submit" class="sub">Create</button>
+          <button type="reset" class="res">Reset</button>
+        </div>
+      </fieldset>
+    </form>
+  <router-outlet></router-outlet>
+</body>
