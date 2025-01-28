@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-home',
-  imports:[RouterModule],
+  selector: 'add-task',
+  imports:[RouterModule, CommonModule],
   templateUrl: './add-task.component.html',
   styleUrls: ['./add-task.component.css'],
 })
-export class HomeComponent implements OnInit {
+export class AddTaskComponent implements OnInit {
   user: any = {
     username: 'Guest',
     gender: 'Male',

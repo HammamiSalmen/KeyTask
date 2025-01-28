@@ -3,17 +3,17 @@
       <fieldset>
         <div>
           <label for="usr">Groupe_name</label>
-          <input type="text" name="grp" id="grp" [(ngModel)]="Groupe_name" required>
+          <input type="text" name="grp" id="grp" [(ngModel)]="Groupe_name"  required>
         </div>
         <div>
           <label for="pwd">Password</label>
           <input type="password" name="pwd" id="pwd" [(ngModel)]="password" required>
         </div>
         <div>
-          <button type="submit" class="sub">Create</button>
+          <button type="submit" class="sub" routerLink="/add-task">Create</button>
           <button type="reset" class="res">Reset</button>
         </div>
       </fieldset>
+      <router-outlet></router-outlet>
     </form>
-  <router-outlet></router-outlet>
 </body>
