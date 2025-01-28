@@ -1,79 +1,12 @@
-<div class="body" [class.night]="nightMode">
-  <div class="side">
-    <div class="profile dropdown">
-      <div class="pfp">
-        <img
-          [src]="
-            user.gender === 'Male'
-              ? '../../Images/3ammo.jpg'
-              : '../../Images/Tata.jpg'
-          "
-          [alt]="user.gender + ' Profile Picture'"
-        />
-      </div>
-      <div class="username">{{ user.username }}</div>
-      <div class="dropdown-content">
-        <button class="button" (click)="logout()"><span>Sign Out</span></button>
-      </div>
-    </div>
-
-    <div class="options">
-      <li>
-        Groups
-        <ul>
-          <li *ngFor="let group of userGroups">
-            <a (click)="loadPage('group-detail', group.id)">{{ group.name }}</a>
-          </li>
-          <li><a (click)="loadPage('add-group')">Add Group</a></li>
-          <li><a (click)="loadPage('join-group')">Join Group</a></li>
-        </ul>
-      </li>
-      <li><a (click)="loadPage('add-task')">Add Task</a></li>
-      <li>
-        Work
-        <ul>
-          <li><a (click)="loadPage('work-today')">Today</a></li>
-          <li><a (click)="loadPage('work-week')">This Week</a></li>
-          <li><a (click)="loadPage('work-month')">This Month</a></li>
-          <li><a (click)="loadPage('work-year')">This Year</a></li>
-        </ul>
-      </li>
-    </div>
-
-    <div class="dropdown">
-      <span>Settings</span>
-      <div class="dropdown-content">
-        <label>
-          <input type="checkbox" (change)="toggleNightMode()" />
-          Night Mode
-        </label>
-      </div>
-    </div>
+<h1>KeyTask</h1>
+<div class="cards-container">
+  <div class="card">
+    <a class="card-title" routerLink="/add-group">Add Group</a>
+    <p class="card-description">To add a group to your group list or create a new group click on<b> "Add Group"</b>.</p>
   </div>
-
-  <div class="main">
-    <div class="search">
-      <input type="search" placeholder="Search..." (keyup.enter)="search()" />
-      <button class="button" (click)="search()"><span>Search</span></button>
-    </div>
-    <div class="table">
-      <iframe
-        *ngIf="activePageUrl"
-        [src]="activePageUrl"
-        frameborder="0"
-      ></iframe>
-    </div>
-  </div>
-
-  <div class="calendar">
-    <iframe
-      src="https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Africa%2FTunis&showPrint=0&src=ZnIudG4jaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%230B8043"
-      style="border: solid 1px #777"
-      width="800"
-      height="600"
-      frameborder="0"
-      scrolling="no"
-    ></iframe>
+  <div class="card">
+    <a class="card-title" routerLink="/join-group">Join Group</a>
+    <p class="card-description">to join a group click on <b>"Join Group"</b>.</p>
   </div>
 </div>
 <router-outlet></router-outlet>

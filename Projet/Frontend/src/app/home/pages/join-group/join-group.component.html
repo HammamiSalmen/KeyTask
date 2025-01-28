@@ -1,1 +1,14 @@
-<p>join-group works!</p>
+<body>
+    <form (ngSubmit)="onSubmit()" #signUpForm="ngForm">
+      <fieldset>
+        <div>
+          <label for="pwd">Password</label>
+          <input type="password" name="pwd" id="pwd" [(ngModel)]="password" required>
+        </div>
+        <div>
+          <button type="submit" class="sub">Join</button>
+        </div>
+      </fieldset>
+    </form>
+  <!--<router-outlet></router-outlet>-->
+</body>

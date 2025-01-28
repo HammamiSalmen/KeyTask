@@ -27,6 +27,7 @@ public class User {
         userDTO.setIduser(this.iduser);
         userDTO.setUsername(this.username);
         userDTO.setEmail(this.email);
+//        userDTO.setPassword(this.password);
         userDTO.setGender(this.gender);
         userDTO.setIdgrp(this.idgrp);
 
