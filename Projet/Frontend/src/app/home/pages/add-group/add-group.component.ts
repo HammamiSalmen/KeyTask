@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import {CommonModule} from '@angular/common'
 import { RouterModule } from '@angular/router';
 import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
   selector: 'app-add-group',
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule,FormsModule],
   templateUrl: './add-group.component.html',
   styleUrl: './add-group.component.css'
 })
@@ -15,6 +16,8 @@ export class AddGroupComponent {
       grpname: '7amma',
       password: '',
     };
+Groupe_name: any;
+password: any;
   
     constructor(private router: Router) {}
   
