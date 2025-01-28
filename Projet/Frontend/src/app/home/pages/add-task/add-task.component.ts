@@ -1,14 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
-  selector: 'app-home',
-  imports:[RouterModule],
+  selector: 'app-task',
+  imports:[RouterModule,CommonModule],
   templateUrl: './add-task.component.html',
   styleUrls: ['./add-task.component.css'],
 })
-export class HomeComponent implements OnInit {
+export class AddTaskComponent implements OnInit {
   user: any = {
     username: 'Guest',
     gender: 'Male',
@@ -21,11 +23,10 @@ export class HomeComponent implements OnInit {
   constructor(private router: Router, private sanitizer: DomSanitizer) {}
 
   ngOnInit() {
-    // Load user from navigation state or fallback to defaults
     const navigation = this.router.getCurrentNavigation();
     this.user = navigation?.extras.state?.['user'] || this.user;
 
-    // Example: Load user groups dynamically
+    
     this.userGroups = [
       { id: 1, name: 'Team Alpha' },
       { id: 2, name: 'Project Beta' },

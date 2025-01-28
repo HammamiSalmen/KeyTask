@@ -24,11 +24,8 @@
             <li *ngFor="let group of userGroups">
               <a (click)="loadPage('group-detail', group.id)">{{ group.name }}</a>
             </li>
-            <li><a (click)="loadPage('add-group')">Add Group</a></li>
-            <li><a (click)="loadPage('join-group')">Join Group</a></li>
           </ul>
         </li>
-        <li><a (click)="loadPage('add-task')">Add Task</a></li>
         <li>
           Work
           <ul>
@@ -75,5 +72,5 @@
         scrolling="no"
       ></iframe>
     </div>
+    <router-outlet></router-outlet>
   </div>
-  <router-outlet></router-outlet>
