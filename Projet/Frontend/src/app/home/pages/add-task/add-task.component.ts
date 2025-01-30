@@ -2,18 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
-<<<<<<< HEAD
-
-@Component({
-  selector: 'add-task',
-  imports:[RouterModule, CommonModule],
-=======
 
 
 @Component({
   selector: 'app-task',
   imports:[RouterModule,CommonModule],
->>>>>>> f09b42ac5aa7332baaedd0f1443aaca8f8651fc1
   templateUrl: './add-task.component.html',
   styleUrls: ['./add-task.component.css'],
 })
