@@ -7,17 +7,15 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.Date;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Document(collection = "task")
-public class Task {
+@Document(collection = "groupe")
+public class Group {
     @Id
     private String id;
-    private String descriptiontask;
-    private Date datetask;
-    private String idgrp;
+    private String nomgrp;
+    private String mdpgrp;
+    private String iduser;
 }
