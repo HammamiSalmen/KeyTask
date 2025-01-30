@@ -1,26 +1,25 @@
 <body>
-    <h1>Welcome Back Tasker</h1>
-    <div class="center-wrapper">
-      <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
-        <fieldset>
-          <div>
-            <label for="usr">Username</label>
-            <input type="text" name="usr" id="usr" [(ngModel)]="username" required>
-          </div>
-          <div>
-            <label for="pwd">Password</label>
-            <input type="password" name="pwd" id="pwd" [(ngModel)]="password" required>
-          </div>
-          <div>
-            <button type="submit" class="sub" [disabled]="!loginForm.valid">Connect</button>
-            <button type="reset" class="res">Reset</button>
-          </div>
-          <p>
-            Don't have an account? <a routerLink="/sign-up">Create one!</a>
-          </p>
-        </fieldset>
-      </form>
-    </div>
-    <router-outlet></router-outlet>
-  </body>
-  
+  <h1>Welcome Back Tasker</h1>
+  <div class="center-wrapper">
+    <form (ngSubmit)="Login()" [formGroup]="userForm">
+      <fieldset>
+        <div>
+          <label for="usr">Username</label>
+          <input type="text" formControlName="username" id="usr" required>
+        </div>
+        <div>
+          <label for="pwd">Password</label>
+          <input type="password" formControlName="password" id="pwd" required>
+        </div>
+        <div>
+          <button type="submit" class="sub" [disabled]="userForm.invalid">Connect</button>
+          <button type="reset" class="res" (click)="userForm.reset()">Reset</button>
+        </div>
+        <p>
+          Don't have an account? <a routerLink="/sign-up">Create one!</a>
+        </p>
+      </fieldset>
+    </form>
+  </div>
+  <router-outlet></router-outlet>
+</body>

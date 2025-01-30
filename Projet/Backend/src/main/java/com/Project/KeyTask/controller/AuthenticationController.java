@@ -1,20 +1,11 @@
 package com.Project.KeyTask.Controller;
 
-import com.Project.KeyTask.DTO.AuthenticationRequest;
-import com.Project.KeyTask.DTO.AuthenticationResponse;
 import com.Project.KeyTask.DTO.Sign_up_DTO;
 import com.Project.KeyTask.DTO.UserDTO;
-import com.Project.KeyTask.Repisotory.UserRepository;
 import com.Project.KeyTask.Services.Authentication.AuthService;
-import com.Project.KeyTask.Services.Authentication.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,8 +18,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class AuthenticationController {
     private final AuthService authService;
-    private final UserService userService;
-    private final AuthenticationManager authenticationManager;
+//    private final AuthenticationManager authenticationManager;
 
 
     @PostMapping("/sign-up")
@@ -42,15 +32,16 @@ public class AuthenticationController {
         }
         return ResponseEntity.status(HttpStatus.CREATED).body(createdUser);
     }
-    @PostMapping("/login")
-    public AuthenticationResponse login(@RequestBody AuthenticationRequest authenticationRequest){
-        try {
-            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
-                    authenticationRequest.getEmail(),
-                    authenticationRequest.getPassword()));
-        } catch (BadCredentialsException e) {
-            throw new BadCredentialsException(("Incorrect username or password"));
-        }
-        return new AuthenticationResponse();
-    }
+
+//    @PostMapping("/login")
+//    public AuthenticationResponse login(@RequestBody AuthenticationRequest authenticationRequest){
+//        try {
+//            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
+//                    authenticationRequest.getEmail(),
+//                    authenticationRequest.getPassword()));
+//        } catch (BadCredentialsException e) {
+//            throw new BadCredentialsException(("Incorrect username or password"));
+//        }
+//        return new AuthenticationResponse();
+//    }
 }
