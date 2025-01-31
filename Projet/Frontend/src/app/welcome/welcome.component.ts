@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { KeycloakService } from '../Services/keycloak.service';
 
 @Component({
   selector: 'app-welcome',
@@ -9,5 +10,9 @@ import { RouterModule } from '@angular/router';
   styleUrl: './welcome.component.css'
 })
 export class WelcomeComponent {
+  constructor(private keycloakService: KeycloakService) {}
 
+  login() {
+    this.keycloakService.login();
+  }
 }

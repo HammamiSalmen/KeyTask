@@ -7,8 +7,8 @@
         <div class="btn">
             <p>Join us now</p>
             <div class="connexion">
-                <button id="log" routerLink="/login">Log In</button>
-                <button id="sign" routerLink="/sign-up">Sign Up</button>
+                <button (click)="login()">Log in with Keycloak</button>
+                <!-- <button (click)="signup()">Sign up with Keycloak</button> -->
                 <router-outlet></router-outlet>
             </div>
         </div>

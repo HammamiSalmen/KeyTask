@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { KeycloakService } from '../Services/keycloak.service';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +19,7 @@ export class HomeComponent implements OnInit {
   searchQuery: string = '';
   nightMode: boolean = false;
 
-  constructor(private router: Router, private sanitizer: DomSanitizer) {}
+  constructor(private router: Router, private sanitizer: DomSanitizer, private keycloakService: KeycloakService ) {}
 
   ngOnInit() {
     // Load user from navigation state or fallback to defaults
@@ -58,5 +59,7 @@ export class HomeComponent implements OnInit {
   logout() {
     console.log('Logging out...');
     this.router.navigate(['/login']);
+    this.keycloakService.logout();
   }
+
 }
