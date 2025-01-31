@@ -5,11 +5,11 @@
         <fieldset>
           <div>
             <label for="usr">Username</label>
-            <input type="text" name="usr" id="usr" [(ngModel)]="username" required>
+            <input type="text" name="usr" id="usr" [(ngModel)]="username" required placeholder="your name">
           </div>
           <div>
             <label for="pwd">Password</label>
-            <input type="password" name="pwd" id="pwd" [(ngModel)]="password" required>
+            <input type="password" name="pwd" id="pwd" [(ngModel)]="password" required >
           </div>
           <div>
             <button type="submit" class="sub" [disabled]="!loginForm.valid">Connect</button>

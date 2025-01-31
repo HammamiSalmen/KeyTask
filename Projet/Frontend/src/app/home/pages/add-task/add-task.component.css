@@ -31,6 +31,7 @@ input[type="search"] {
 .body {
   display: flex;
   height: 100vh;
+  background: linear-gradient(135deg, #dcdcdc, #b8b8b8); 
 }
 
 .side {

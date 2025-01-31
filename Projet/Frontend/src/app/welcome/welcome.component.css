@@ -1,93 +1,139 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
 body {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
     text-align: center;
-    color: white;
 }
+.main-container {
+    width: 1000%;
 
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    animation: fadeIn 1.5s ease-in-out;
+    transform: translateY(0);
+    transition: all 0.3s ease-in-out;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 .welcome h1 {
-    font-size: 48px;
-    margin: 0;
-    text-transform: uppercase;
-    font-weight: bold;
-    letter-spacing: 2px;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #333;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
 }
-
 .welcome h3 {
-    font-size: 24px;
-    margin-top: 10px;
-    font-style: italic;
-    color: #d1d1e9;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #555;
 }
-
-/* Button section */
 .btn {
-    margin-top: 100px;
-    display: block;
+    margin-top: 30px;
 }
-
 .btn p {
-    font-size: 18px;
-    margin-bottom: 20px;
-    color: #f0f0f0;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #222;
 }
-
-/* Button container styles */
 .connexion {
+    margin-top: 20px;
     display: flex;
-    justify-content: center;
     gap: 20px;
+    justify-content: center;
 }
 
-/* Buttons */
-.connexion button {
-    padding: 12px 25px;
-    font-size: 16px;
-    font-weight: bold;
+button {
+    padding: 14px 28px;
+    font-size: 1.1rem;
+    font-weight: 500;
     border: none;
-    border-radius: 25px;
+    border-radius: 30px;
     cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s cubic-bezier(0.7, 0, 0.2, 1), background-color 0.3s ease;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Sign Up button styles */
-#sign {
-    background: #e8fba7;
-    color: rgb(176, 173, 173);
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-#sign:hover {
-    background: #3ade19;
-    transform: translate3d(-4px, -4px, 0);
-}
 
-/* Log In button styles */
 #log {
-    background: #03a9f4;
+    background: #666;
     color: white;
 }
 
 #log:hover {
-    background: #0288d1;
-    transform: translate3d(-4px, -4px, 0);
+    background: #444;
 }
 
-/* New additions for improved alignment and consistency */
-.welcome {
-    margin-bottom: 30px; /* Add spacing between welcome and buttons */
+/* Bouton Sign Up */
+#sign {
+    background: #888;
+    color: white;
 }
 
-body .btn {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+#sign:hover {
+    background: #666;
 }
 
-/* Centering text inside buttons if needed */
-.connexion button {
+
+.main-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+}
+
+
+@media (max-width: 768px) {
+    .main-container {
+        width: 90%;
+        padding: 30px;
+    }
+
+    .welcome h1 {
+        font-size: 2rem;
+    }
+
+    .welcome h3 {
+        font-size: 1rem;
+    }
+
+    .btn p {
+        font-size: 1.2rem;
+    }
+
+    button {
+        font-size: 1rem;
+        padding: 12px 20px;
+    }
+}
+footer {
     text-align: center;
+    padding: 30px;
+    background-color: #431919;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: white;
 }
