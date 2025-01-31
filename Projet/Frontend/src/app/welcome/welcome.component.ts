@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { KeycloakService } from '../Services/keycloak.service';
 
 @Component({
@@ -10,9 +10,20 @@ import { KeycloakService } from '../Services/keycloak.service';
   styleUrl: './welcome.component.css'
 })
 export class WelcomeComponent {
+  router: any;
   constructor(private keycloakService: KeycloakService) {}
 
   login() {
-    this.keycloakService.login();
+    this.keycloakService
+      .init()
+      .then(() => {
+        console.log('Keycloak initialized successfully');
+        return this.keycloakService.login();
+      }) .then(() => {
+        this.router.navigate(['/home']); // Redirect to the home page after login
+      })
+      .catch((error) => {
+        console.error('Keycloak initialization/login failed:', error);
+      });
   }
 }

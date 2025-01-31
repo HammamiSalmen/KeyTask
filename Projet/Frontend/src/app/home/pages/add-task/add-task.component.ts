@@ -58,11 +58,13 @@ export class AddTaskComponent implements OnInit {
   }
 
   logout() {
-    console.log('Logging out...');
-    this.router.navigate(['/login']);
+    console.log('Logging out from Keycloak...');
     this.keycloakService.logout();
+    
+    // Add a delay to make sure Keycloak logout finishes before navigating
+    setTimeout(() => {
+      this.router.navigate(['/login']);
+    }, 500);  // Delay of 500ms, adjust as needed
   }
-  userProfile() {
-    this.keycloakService.accountManagment();
-  }
+  
 }
