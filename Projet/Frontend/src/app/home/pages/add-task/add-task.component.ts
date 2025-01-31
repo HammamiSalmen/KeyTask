@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
+import { KeycloakService } from '../../../Services/keycloak.service';
 
 
 @Component({
@@ -20,7 +21,7 @@ export class AddTaskComponent implements OnInit {
   searchQuery: string = '';
   nightMode: boolean = false;
 
-  constructor(private router: Router, private sanitizer: DomSanitizer) {}
+  constructor(private router: Router, private sanitizer: DomSanitizer, private keycloakService: KeycloakService) {}
 
   ngOnInit() {
     const navigation = this.router.getCurrentNavigation();
@@ -57,7 +58,13 @@ export class AddTaskComponent implements OnInit {
   }
 
   logout() {
-    console.log('Logging out...');
-    this.router.navigate(['/login']);
+    console.log('Logging out from Keycloak...');
+    this.keycloakService.logout();
+    
+    // Add a delay to make sure Keycloak logout finishes before navigating
+    setTimeout(() => {
+      this.router.navigate(['/login']);
+    }, 500);  // Delay of 500ms, adjust as needed
   }
+  
 }
