@@ -23,10 +23,14 @@ export class AddTaskComponent implements OnInit {
 
   constructor(private router: Router, private sanitizer: DomSanitizer, private keycloakService: KeycloakService) {}
 
-  ngOnInit() {
+  async ngOnInit() {
     const navigation = this.router.getCurrentNavigation();
     this.user = navigation?.extras.state?.['user'] || this.user;
-
+    const isAuthenticated = await this.keycloakService.init();
+    if (!isAuthenticated) { 
+      console.error('User is not authenticated. Redirecting to login...');
+      this.router.navigate(['/welcome']);
+    }
     
     this.userGroups = [
       { id: 1, name: 'Team Alpha' },
@@ -60,11 +64,6 @@ export class AddTaskComponent implements OnInit {
   logout() {
     console.log('Logging out from Keycloak...');
     this.keycloakService.logout();
-    
-    // Add a delay to make sure Keycloak logout finishes before navigating
-    setTimeout(() => {
-      this.router.navigate(['/login']);
-    }, 500);  // Delay of 500ms, adjust as needed
   }
   
 }

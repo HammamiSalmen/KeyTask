@@ -1,55 +1,142 @@
-fieldset {
-  border: none;
+* {
+  margin: 0;
   padding: 0;
-}
-label {
-  display: block;
-  font-weight: bold;
-  font-size: 14px;
-  margin-bottom: 5px;
-  color: blueviolet;
-}
-input[type="password"] {
-  width: 93%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 14px;
-}
-.sub {
-  background-color: blueviolet;
-  color: #ffffff;
-  width: 48%;
-  padding: 10px;
-  margin-right: 4%;
-  font-size: 14px;
-  font-weight: bold;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  box-sizing: border-box;
+  font-family: sans-serif;
 }
 
-.sub:hover {
-  background-color: rgb(189, 165, 212);
-  transform: translateY(-10px);
-}
 body {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
+  background: linear-gradient(135deg, #1b1f3b, #2c3e50); /* Faded dark blue gradient */
   text-align: center;
-  color: #faf6f6;
 }
+
 form {
-  position: relative;
-  left: 190px;
-  width: 350px;
-  background: #faf6f6;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  padding: 30px;
+  background: rgba(245, 245, 220, 0.9); /* Beige transparent */
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: fadeIn 1.5s ease-in-out;
+  transform: translateY(0);
+  transition: all 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+fieldset {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+label {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #1b1f3b; /* Dark blue */
+  text-align: left;
+  display: block;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #2c3e50; /* Dark blue border */
+  border-radius: 10px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+input:focus {
+  border-color: #1b1f3b;
+  box-shadow: 0 0 10px rgba(27, 31, 59, 0.5);
+}
+
+div {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+button {
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.sub {
+  background: #1b1f3b; /* Dark blue */
+  color: white;
+}
+
+.sub:hover {
+  background: #151930;
+  transform: scale(1.1);
+}
+
+p {
+  margin-top: 15px;
+  font-size: 1rem;
+  color: #2c3e50; /* Darker blue for text */
+}
+
+p a {
+  color: #1b1f3b; /* Dark blue for links */
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+p a:hover {
+  text-decoration: underline;
+  color: #151930;
+}
+
+form:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 768px) {
+  form {
+    width: 90%;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  label {
+    font-size: 1rem;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
 }

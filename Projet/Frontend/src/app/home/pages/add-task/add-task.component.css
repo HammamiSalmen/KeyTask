@@ -9,12 +9,7 @@ a {
   color: inherit;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
@@ -31,6 +26,7 @@ input[type="search"] {
 .body {
   display: flex;
   height: 100vh;
+  background: linear-gradient(135deg, #dcdcdc, #b8b8b8); 
 }
 
 .side {
@@ -199,6 +195,7 @@ iframe {
   opacity: 1;
   right: 0;
 }
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .body {

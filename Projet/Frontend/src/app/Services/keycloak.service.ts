@@ -6,6 +6,7 @@ import Keycloak from 'keycloak-js';
 })
 export class KeycloakService {
   private _keycloak: Keycloak | undefined;
+  private authenticated: boolean = false;
 
   constructor() {}
   
@@ -22,30 +23,30 @@ export class KeycloakService {
         clientId: 'key-admin',  // Ensure clientId matches what is configured in Keycloak
       });
     }
-    return this._keycloak;
+    return this._keycloak!;
   }
   
-  async init() {
+  async init(): Promise<boolean> {
     if (this.isBrowser) {
       try {
-        const authenticated = await this.keycloak?.init({
-          onLoad: 'check-sso',  // Check for SSO session instead of forcing login
+        this.authenticated = await this.keycloak.init({
+          onLoad: 'login-required',
         });
-        console.log('Keycloak initialized successfully', authenticated);
+        console.log('Keycloak initialized successfully', this.authenticated);
+        return this.authenticated;
       } catch (error) {
         console.error('Error initializing Keycloak:', error);
-        if (error && (error as { response?: any }).response) {
-          console.error('Error details:', (error as { response: any }).response);
-        }
+        return false;
       }
     } else {
       console.warn('Keycloak initialization attempted in a non-browser environment.');
+      return false;
     }
   }
   
   async login() {
     if (this.isBrowser) {
-      await this.keycloak?.login({
+      await this.keycloak.login({
         redirectUri: 'http://localhost:4200/home',
       });
     } else {
@@ -54,24 +55,22 @@ export class KeycloakService {
   }
 
   get userId(): string | undefined {
-    return this.keycloak?.tokenParsed?.sub;
+    return this.keycloak.tokenParsed?.sub;
   }
 
   get isTokenValid(): boolean {
     return this.keycloak ? !this.keycloak.isTokenExpired() : false;
   }
-
   get fullName(): string | undefined {
-    return this.keycloak?.tokenParsed?.['name'];
+    return this.keycloak.tokenParsed?.['name'];
   }
 
   logout() {
-    if (this.keycloak) {
-      this.keycloak.logout({
-        redirectUri: window.location.origin + '/login', // Redirect after logout
-      });
+    if (this.authenticated) {
+      console.log('Logging out...');
+      this.keycloak.logout({ redirectUri: 'http://localhost:4200/' });
     } else {
-      console.error('Keycloak is not initialized.');
-    }
+      console.error('Keycloak is not initialized or user is not authenticated.');
+    } 
   }
 }

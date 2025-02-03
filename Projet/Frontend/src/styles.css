@@ -2,17 +2,12 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(to right, #8d7e9d, hsl(290, 71%, 89%));
+    background: linear-gradient(135deg, #dcdcdc, #b8b8b8);
 }
 .main-container, .center-wrapper {
-    max-width: 100%; /* Set the maximum width of the container */
-    width: 800px; /* Let the container shrink for smaller screens */
-    margin: 0 auto; /* Center the container horizontally */
-    padding: 20px; /* Add padding for better spacing inside the container */
-    box-sizing: border-box; /* Include padding and borders in width calculations */
+    max-width: 100%;
+    width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
 }
-/* @media (min-width: 1024px) { 
-    .main-container {
-        max-width: 33%;
-    }
-} */ /* Apply on screens wider than 1024px */
