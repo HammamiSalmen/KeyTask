@@ -148,12 +148,12 @@ iframe {
 }
 
 /* Night mode */
-.body.night {
+.night {
   background-color: #121212;
   color: #f1f1f1;
 }
 
-.side.night {
+.night .side, .night .calendar {
   background-color: #2c2c2c;
 }
 

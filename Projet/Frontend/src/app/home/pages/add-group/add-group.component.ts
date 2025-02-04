@@ -22,7 +22,6 @@ password: any;
     constructor(private router: Router) {}
   
     onSubmit() {
-    
       // Navigate to the home component after sign-up
       this.router.navigate(['/add-task'], { state: { admin: this.admin } });
     }
