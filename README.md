@@ -1,10 +1,9 @@
-<p align="center">
-  <img src="assets/logo.png" alt="KeyTask Logo" width="120" />
-</p>
-
 # KeyTask
 
 A secure, full-stack task management application featuring centralized identity management and role-based access control. 
+<p align="center">
+  <img src="assets/logo.png" alt="KeyTask Logo" width="120" />
+</p>
 
 ## Overview
 
