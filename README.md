@@ -1,6 +1,6 @@
 # KeyTask
 
-A secure, full-stack task management application featuring centralized identity management and role-based access control.
+A secure, full-stack task management application featuring centralized identity management and role-based access control. 
 
 ## Overview
 
