@@ -34,7 +34,7 @@ A secure, full-stack task management application featuring centralized identity 
 
 ```bash
 # Clone the repository
-git clone [https://github.com/HammamiSalmen/KeyTask.git](https://github.com/HammamiSalmen/KeyTask.git)
+git clone https://github.com/HammamiSalmen/KeyTask.git
 cd KeyTask
 
 # Launch the backend service
